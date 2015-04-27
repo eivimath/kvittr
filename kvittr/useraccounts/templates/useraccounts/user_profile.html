@@ -1,0 +1,18 @@
+{% extends 'useraccounts/base.html' %}
+{% block container %}
+	
+	<div class="container">
+        <div class="well well-sm">
+            <h1 class="center"> User profile </h1>
+            <hr>
+            <h4 class="text"> Username: {{ user.username }} </h4>
+            <h4 class="text"> First name: {{ user.first_name }} </h4>
+            <h4 class="text"> Last name: {{ user.last_name }} </h4>
+            <h4 class="text"> Email: {{ user.email }} </h4>
+
+            <hr>
+            <a href="{% url 'frontpage' %}"><button type="button" class="btn btn-default">Go back</button></a>
+        </div>
+    </div>
+
+{% endblock %}
