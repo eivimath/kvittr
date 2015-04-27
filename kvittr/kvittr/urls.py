@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('theme.urls')),
     url(r'^useraccounts/', include ('useraccounts.urls')),
+    url(r'^messages_display/', include('messages_display.urls')),
 )
