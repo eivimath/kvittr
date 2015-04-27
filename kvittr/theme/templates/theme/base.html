@@ -11,38 +11,37 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Kvittr</a>
+          <a class="navbar-brand" href="{% url 'frontpage' %}">Kvittr</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-                <a href="#">Users</a>
+                <a href="{% url 'message_listing' %}">Kvittr wall</a>
             </li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right">
 
-            
+          {% if user.is_anonymous %}
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Sign in</a></li>
+                    <li><a href="{% url 'user_login' %}">Sign in</a></li>
                     <li><a href="{% url 'user_register' %}">Register</a></li>
                   </ul>
                 </li>
-            
+          {% else %}
                 <li class="dropdown">
-                  
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.email }} <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    
+                    <li><a href="{% url 'user_profile' %}">Account</a></li>
                     <li class="divider"></li>
-                   
+                    <li><a href="{% url 'user_logout' %}">Logout</a></li>
                   </ul>
                 </li>
-           
-
+          {% endif %}
+            
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -50,7 +49,7 @@
 
     <div class="container">
         <div class="page-header">
-            <h1>Welcome to Kvittr! <small>{% block subheader %}{% endblock %}</small></h1>
+            <h1>Kvittr <small>{% block subheader %}{% endblock %}</small></h1>
         </div>
 
         {% block pagecontent %}
@@ -58,8 +57,4 @@
         {% endblock %}
 
     </div>
-{% endblock body %}
-
-
-
-
+{% endblock body %} 
