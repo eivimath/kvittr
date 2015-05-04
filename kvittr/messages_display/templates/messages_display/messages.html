@@ -1,0 +1,55 @@
+{% extends 'theme/base.html' %}
+{% block pagecontent %}
+    {{ block.super }}
+
+        {% if user.is_authenticated %}
+
+        <div class="row" style="">
+        <div class="col-sm-12">
+            <h3>Write message:</h3>
+            <form class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-11">
+                        <textarea class="form-control" rows="1" name="new_message" placeholder="What´s on your mind?"></textarea>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button type="submit" class="btn btn-success">Publish</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        </div>
+
+        {% else %}
+
+        <h4>Log in or register to write messages.</h4>
+
+        {% endif %}
+
+        <div class="col-sm-12">
+        <ul>
+        {% for message in messages %}
+
+            <li class="well" style="list-style:none; width: 600px; margin-left: auto; margin-right: auto;">
+
+                <h6> Written by: {{ message.created_by }} </h6>
+                <br>
+                <blockquote>{{ message.message }}</blockquote> 
+                <h6> Published: {{ message.created_datetime}} </h6>
+                <p id="passed_exams_cell">This post has {{ 'views.like_button' }} likes </p>
+                <a id="increase_passed_exams_button" class="btn btn-success" href="#" role="button">
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
+                    Like this post too!
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
+    </div>
+
+    <input type="hidden" id="passed_exams_url" 
+        value="/students/{{ student.id }}/increase_passed_exams">
+{% endblock %}
