@@ -3,12 +3,12 @@
 	
 	<div class="container">
         <div class="well well-sm">
-            <h1 class="center"> User profile </h1>
+            <h2 class="center"> User profile </h2>
             <hr>
-            <h4 class="text"> Username: {{ user.username }} </h4>
-            <h4 class="text"> First name: {{ user.first_name }} </h4>
-            <h4 class="text"> Last name: {{ user.last_name }} </h4>
-            <h4 class="text"> Email: {{ user.email }} </h4>
+            <h5 class="text"> Username: {{ user.username }} </h5>
+            <h5 class="text"> First name: {{ user.first_name }} </h5>
+            <h5 class="text"> Last name: {{ user.last_name }} </h5>
+            <h5 class="text"> Email: {{ user.email }} </h5>
 
             <hr>
             <a href="{% url 'frontpage' %}"><button type="button" class="btn btn-default">Go back</button></a>
