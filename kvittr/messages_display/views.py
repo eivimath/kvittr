@@ -29,9 +29,10 @@ def messages(request):
 	context = {'messages': messages}
 	return render(request, 'messages_display/messages.html', context)
 
-def like_button(request):
-    like = Like.objects.get(pk=0)
-    messages.liked =  messages.liked + 1
-    messages.save()
-    data = {'likes_updated': messages.likes}
-    return JsonResponse(data)
+def add_likes(request, message_id):
+	message = Message.objects.get(pk=message_id)
+	message.likes = message.likes + 1
+	message.save()
+	data = {'likes_updated': message.likes}
+	return JsonResponse(data)
+
