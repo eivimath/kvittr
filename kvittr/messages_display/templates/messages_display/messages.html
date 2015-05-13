@@ -43,6 +43,8 @@
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Like </span>
                 <span class="label label-success label-as-badge" id="id-likes-for-message-{{ message.id }}"> {{ message.likes }}</span>
                 </button>
+                <br>
+                <a href="{% url 'detailed_message' message.id %}" class="btn btn-sm btn-warning pull-right">View details about message {{ message.id }} here</a>
             </li>
 
         {% endfor %}
