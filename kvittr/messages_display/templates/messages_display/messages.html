@@ -39,10 +39,20 @@
                 <br>
                 <blockquote>{{ message.message }}</blockquote> 
                 <h6>Published: {{ message.created_datetime }}</h6>
+
+                {% if user.is_authenticated %}
+
                 <button type="button" class="add-likes-link btn btn-default" aria-label="Like" data-messageid="{{ message.id }}">
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Like </span>
                 <span class="label label-success label-as-badge" id="id-likes-for-message-{{ message.id }}"> {{ message.likes }}</span>
                 </button>
+
+                {% else %}
+
+                <h5>This message has {{ message.likes }} likes</h5>
+
+                {% endif %}
+
                 <br>
                 <a href="{% url 'detailed_message' message.id %}" class="btn btn-sm btn-warning pull-right">View details about message {{ message.id }} here</a>
             </li>
@@ -75,10 +85,4 @@
             </ul>
         </nav>
 
-
-
-    <!--<input type="hidden" id="likes_url" 
-        value="/messages_display/{{ message.id }}/increase_likes">-->
-      <!--  <input type="hidden" id="add_points_url" 
-            value="/messages_display/{{ message.id }}/add_points"> -->
 {% endblock %}
