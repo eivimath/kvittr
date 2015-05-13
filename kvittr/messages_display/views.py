@@ -36,3 +36,9 @@ def add_likes(request, message_id):
 	data = {'likes_updated': message.likes}
 	return JsonResponse(data)
 
+def detailed_message(request, message_id):
+	message = Message.objects.get(pk=message_id)
+	messages = Message.objects.all()
+	context = {'message': message}
+	return render(request, 'messages_display/detailed_message.html', context)
+
