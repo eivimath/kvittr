@@ -38,10 +38,9 @@ def user_edit_profile(request):
 	context = {}
 	if request.method == "POST":
 		user = request.user
-		if User.objects.filter(email=request.POST['email']).exists():
+		if User.objects.filter(email=request.POST['email']).exclude(pk=user.id).exists():
 			context['email_exist'] = True
 		else:
-			user.username = request.POST.get('username')
 			user.first_name = request.POST.get('firstname')
 			user.last_name = request.POST.get('lastname')
 			user.email = request.POST.get('email')
