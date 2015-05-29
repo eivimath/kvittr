@@ -11,6 +11,7 @@
 {% block subheader %} Message details {% endblock %}
 {% block pagecontent %}
 
+<div class="container" style="opacity: .9;">
     <h1 class="text-center"> Message {{ message.id }} </h1>
     <br>
 
@@ -20,17 +21,11 @@
         
         <br>
         <blockquote>{{ message.message }}</blockquote> 
-
-
-        {% if user.is_authenticated %}
-        <button type="button" class="add-likes-link btn btn-default" aria-label="Like" data-messageid="{{ message.id }}">
-        	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Like </span>
-                {% endif %}
-                <span class="label label-success label-as-badge" id="id-likes-for-message-{{ message.id }}">{{ message.likes }}</span>
-        </button>
+        <h5>This message has {{ message.likes }} likes</h5>
 
         <hr>
-        <a href="{% url 'messages' %}" class="btn btn-danger pull-right">Go back</a>
+        <a href="{% url 'messages' %}" class="btn btn-warning pull-right">Go back</a>
 	</div>
+</div>
 
 {% endblock %}
