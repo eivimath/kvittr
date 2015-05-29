@@ -11,17 +11,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'frontpage' %}">Kvittr</a>
+          <a class="navbar-brand" href="{% url 'frontpage' %}"><img src="/static/theme/images/kvittrLogoEM_orange.png" style="width: 35px; margin-top: -10px;"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-                <a href="{% url 'users' %}">Users</a>
-            </li>
-            <li>
-                <a href="{% url 'messages' %}"{>The Mighty Kvittr Wall</a>
+                <a href="{% url 'messages' %}">The Mighty Kvittr Wall <span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -49,11 +46,6 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
-    <div class="container">
-        <div class="page-header">
-            <h1 style="color:green;">Kvittr</h1>
-        </div>
 
         {% block pagecontent %}
 
