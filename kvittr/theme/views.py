@@ -6,6 +6,3 @@ def frontpage(request):
 
 def messages(request):
 	return render(request, 'messages_display/templates/messages_display/messages.html')
-
-def users(request):
-    return render(request, 'theme/users.html')
