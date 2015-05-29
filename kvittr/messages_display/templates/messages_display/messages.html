@@ -3,10 +3,9 @@
     {{ block.super }}
 
         {% if user.is_authenticated %}
-
-        <div class="row" style="">
-        <div class="col-sm-12">
-            <h3>Write message:</h3>
+    <div class"container">
+        <div class="col-sm-6 col-sm-offset-3" style="opacity: .9;">
+            <h3 style="text-align: center;">Write message:</h3>
             <form class="form-horizontal" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
@@ -15,7 +14,7 @@
                     </div>
 
                     <div class="col-sm-1">
-                        <button type="submit" class="btn btn-success">Publish</button>
+                        <button type="submit" class="btn btn-warning">Publish</button>
                     </div>
                 </div>
             </form>
@@ -25,11 +24,11 @@
 
         {% else %}
 
-        <h4>Log in or register to write messages.</h4>
+        <h4 style="text-align: center;">Log in or register to write messages.</h4>
 
         {% endif %}
 
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="opacity: .9;">
         <ul>
         {% for message in messages %}
 
@@ -44,7 +43,7 @@
 
                 <button type="button" class="add-likes-link btn btn-default" aria-label="Like" data-messageid="{{ message.id }}">
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Like </span>
-                <span class="label label-success label-as-badge" id="id-likes-for-message-{{ message.id }}"> {{ message.likes }}</span>
+                <span class="label label-warning label-as-badge" id="id-likes-for-message-{{ message.id }}"> {{ message.likes }}</span>
                 </button>
 
                 {% else %}
@@ -84,5 +83,6 @@
                 {% endif %}
             </ul>
         </nav>
+    </div>
 
 {% endblock %}
