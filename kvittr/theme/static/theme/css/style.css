@@ -1,4 +1,12 @@
 
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body, html {
+	font-family: roboto;
+}
+
 body {
-	background-image: url("/static/theme/images/IMG_7159.jpg");
+	background-image: url("/static/theme/images/background.jpg"), url("/static/theme/images/background2.jpg");
+	background-size: 100%, 10%;
+	background-repeat: no-repeat, repeat;
 }
